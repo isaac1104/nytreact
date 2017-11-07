@@ -27,6 +27,7 @@ class App extends Component {
   };
 
   handleFormSubmit = (event) => {
+    this.setState({search: ""});
     event.preventDefault();
   };
 
@@ -48,7 +49,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick}/>
+        <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick} search={this.state.search}/>
         <Results result={this.state.result}/>
       </div>
     );

@@ -1,6 +1,7 @@
-.card {
+.search-box {
   text-align: center;
-  color: #353b40;
+  color: black;
+  background-image: url("./../../image/background.jpg");
 }
 
 .card-header {
