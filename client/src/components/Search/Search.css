@@ -1,0 +1,17 @@
+.card {
+  text-align: center;
+  color: #353b40;
+}
+
+.card-header {
+  border-bottom: 1px solid white;
+}
+
+.btn {
+  padding: 20px;
+}
+
+input {
+  margin-bottom: 20px;
+  text-align: center
+}
