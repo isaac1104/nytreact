@@ -10,12 +10,14 @@ const Results = (props) => {
       </div>
       <div className="card-body">
         {props.result.map((article) => {
+          const image = `https://www.nytimes.com/${article.multimedia[0].url}`;
           return (
-            <div>
-              <div key={article._id} className="article-display row">
-                <a href={article.web_url} target="_blank" className="col-md-4"><img src="http://via.placeholder.com/200X200" className="img-responsive" alt="thumbnail"/></a>
-                <div className="col-md-4"><h4>Title: {article.headline.main}</h4></div>
-                <div className="col-md-4"><h4>Published: {article.pub_date}</h4></div>
+            <div key={article._id}>
+              <div className="article-display row">
+                <a href={article.web_url} target="_blank" className="col-md-4"><img src={image} className="img-responsive" alt="thumbnail"/></a>
+                <div className="col-md-3"><h4>Title: {article.headline.main}</h4></div>
+                <div className="col-md-3"><h4>Published: {article.pub_date}</h4></div>
+                <button className="btn btn-sm btn-info col-md-2">save</button>
               </div>
               <hr/>
             </div>
