@@ -20,7 +20,7 @@ class App extends Component {
 
   loadArticles = () => {
     API.getArticles().then((res) => {
-      this.setState({result: res.data});
+      this.setState({result: res, title: "", date: "", url: ""});
     }).catch((err) => {
       console.log(err);
     });
@@ -45,12 +45,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.result);
     return (
       <div>
         <Header/>
         <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick}/>
-        <Results/>
+        <Results result={this.state.result}/>
       </div>
     );
   }

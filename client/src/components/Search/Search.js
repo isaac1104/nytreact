@@ -5,7 +5,7 @@ import "./Search.css";
 
 const Search = (props) => {
   return (
-    <div className="card bg-light mb-3">
+    <div className="card bg-light mb-3 container">
       <div className="card-header">
         <h4>Search</h4>
       </div>
