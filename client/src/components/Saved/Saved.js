@@ -18,7 +18,7 @@ const Saved = (props) => {
                 <div className="col-md-3">
                   <h4>Saved Date: {article.date}</h4>
                 </div>
-                <button onClick={(_id) => props.deleteArticle(_id)} className="btn btn-sm btn-danger col-md-2">delete</button>
+                <button onClick={() => props.deleteArticle(article._id)} className="btn btn-sm btn-danger col-md-2">delete</button>
               </div>
               <hr/>
             </div>
