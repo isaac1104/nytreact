@@ -11,7 +11,6 @@ class App extends Component {
     result: [],
     savedArticles: [],
     title: "",
-    date: "",
     url: ""
   }
 
@@ -21,14 +20,15 @@ class App extends Component {
 
   loadArticles = () => {
     API.getSavedArticles().then((res) => {
-      console.log(res.data);
+      this.setState({savedArticles: res.data});
     }).catch((err) => {
       console.log(err);
     });
   };
 
-  handleSaveButton = () => {
-    API.saveArticles({title: "test"}).then((res) => {
+  handleSaveButton = (title, url, date, image) => {
+    console.log(title, url, date, image);
+    API.saveArticles({title, url, date, image}).then((res) => {
       this.loadArticles()
     }).catch((err) => {
       console.log(err);
@@ -60,7 +60,7 @@ class App extends Component {
         <Header/>
         <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick} search={this.state.search}/>
         <Results result={this.state.result} handleSaveButton={this.handleSaveButton}/>
-        <Saved/>
+        <Saved savedArticles={this.state.savedArticles}/>
       </div>
     );
   }

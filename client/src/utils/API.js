@@ -10,7 +10,7 @@ export default {
   getSavedArticles() {
     return axios.get("/api/articles");
   },
-  saveArticles(articles) {
-    return axios.post("api/articles", articles)
+  saveArticles(Article) {
+    return axios.post("api/articles", Article)
   }
 };
