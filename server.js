@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static("client/public"));
 // Add routes, both API and view
 app.use(routes);
 // Set up promises with mongoose
@@ -22,6 +22,7 @@ mongoose.connect(
     useMongoClient: true
   }
 );
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

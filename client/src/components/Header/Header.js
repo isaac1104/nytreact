@@ -3,7 +3,7 @@ import "./Header.css";
 
 const Header = () => {
   return(
-    <div className="jumbotron">
+    <div className="jumbotron container">
       <h1>New York Times Article Scrubber</h1>
       <hr/>
       <h4>search for and annotate articles of interest!</h4>

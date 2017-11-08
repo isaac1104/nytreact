@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import Header from "./Header/Header";
 import Search from "./Search/Search";
 import Results from "./Results/Results";
+import Saved from "./Saved/Saved";
 import API from "./../utils/API";
 
 class App extends Component {
   state = {
     search: "",
     result: [],
-    saved: false,
+    savedArticles: [],
     title: "",
     date: "",
     url: ""
@@ -19,8 +20,16 @@ class App extends Component {
   };
 
   loadArticles = () => {
-    API.getArticles().then((res) => {
-      this.setState({result: res, title: "", date: "", url: ""});
+    API.getSavedArticles().then((res) => {
+      console.log(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
+  handleSaveButton = () => {
+    API.saveArticles({title: "test"}).then((res) => {
+      this.loadArticles()
     }).catch((err) => {
       console.log(err);
     });
@@ -50,7 +59,8 @@ class App extends Component {
       <div>
         <Header/>
         <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick} search={this.state.search}/>
-        <Results result={this.state.result}/>
+        <Results result={this.state.result} handleSaveButton={this.handleSaveButton}/>
+        <Saved/>
       </div>
     );
   }

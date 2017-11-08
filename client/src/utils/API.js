@@ -7,10 +7,10 @@ export default {
   getData(search) {
     return axios.get(`${URL}?q=${search}&api-key=${KEY}`);
   },
-  getArticles() {
+  getSavedArticles() {
     return axios.get("/api/articles");
   },
-  saveData(articles) {
+  saveArticles(articles) {
     return axios.post("api/articles", articles)
   }
 };
