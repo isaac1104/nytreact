@@ -8,10 +8,10 @@ import API from "./../utils/API";
 class App extends Component {
   state = {
     search: "",
+    start: "",
+    end: "",
     result: [],
-    savedArticles: [],
-    title: "",
-    url: ""
+    savedArticles: []
   }
 
   componentDidMount() {
@@ -62,7 +62,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.savedArticles);
     return (
       <div>
         <Header/>
