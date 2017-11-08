@@ -1,5 +1,6 @@
 import React from "react";
 import "./Results.css";
+import Default from "./../../image/default.png"
 
 const Results = (props) => {
   return (
@@ -9,7 +10,7 @@ const Results = (props) => {
       </div>
       <div className="card-body">
         {props.result.map((article) => {
-          const image = `https://www.nytimes.com/${article.multimedia[0].url}`;
+          const image = Default || `https://www.nytimes.com/${article.multimedia[0].url}`;
           return (
             <div key={article._id}>
               <div className="article-display row">
@@ -20,7 +21,7 @@ const Results = (props) => {
                 <div className="col-md-3">
                   <h4>Published: {article.pub_date}</h4>
                 </div>
-                <button onClick={() => props.handleSaveButton(article.headline.main, article.web_url, article.pub_date, image)} className="btn btn-sm btn-warning col-md-2">save</button>
+                <button onClick={() => props.handleSaveButton(article.headline.main, article.web_url, article.pub_date, image)} className="btn btn-sm btn-primary col-md-2">save</button>
               </div>
               <hr/>
             </div>

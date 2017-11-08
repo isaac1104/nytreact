@@ -12,5 +12,8 @@ export default {
   },
   saveArticles(Article) {
     return axios.post("api/articles", Article)
+  },
+  deleteArticle(_id) {
+    return axios.delete("api/articles" + _id);
   }
 };

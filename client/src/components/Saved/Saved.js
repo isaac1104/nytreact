@@ -9,7 +9,7 @@ const Saved = (props) => {
       <div className="card-body">
         {props.savedArticles.map((article) => {
           return (
-            <div key={article.id}>
+            <div key={article._id}>
               <div className="article-display row">
                 <a href={article.url} target="_blank" className="col-md-4"><img src={article.image} className="img-responsive" alt="thumbnail"/></a>
                 <div className="col-md-3">
@@ -18,7 +18,7 @@ const Saved = (props) => {
                 <div className="col-md-3">
                   <h4>Saved Date: {article.date}</h4>
                 </div>
-                <button className="btn btn-sm btn-danger col-md-2">delete</button>
+                <button onClick={(_id) => props.deleteArticle(_id)} className="btn btn-sm btn-danger col-md-2">delete</button>
               </div>
               <hr/>
             </div>

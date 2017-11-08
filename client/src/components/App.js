@@ -26,8 +26,15 @@ class App extends Component {
     });
   };
 
+  deleteArticle = (id) => {
+    API.deleteArticle(id).then((res) => {
+      this.loadArticles()
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
   handleSaveButton = (title, url, date, image) => {
-    console.log(title, url, date, image);
     API.saveArticles({title, url, date, image}).then((res) => {
       this.loadArticles()
     }).catch((err) => {
@@ -55,12 +62,13 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.savedArticles);
     return (
       <div>
         <Header/>
         <Search handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} handleButtonClick={this.handleButtonClick} search={this.state.search}/>
         <Results result={this.state.result} handleSaveButton={this.handleSaveButton}/>
-        <Saved savedArticles={this.state.savedArticles}/>
+        <Saved savedArticles={this.state.savedArticles} deleteArticle={this.deleteArticle}/>
       </div>
     );
   }
